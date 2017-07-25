@@ -12,10 +12,10 @@
             <column name="userName" sql-type="varchar(255)"/>
         </property>
         <property name="sex">
-            <column name="sex" sql-type="varchar(10)" length="10" not-null="true"/>
+            <column name="sex" sql-type="varchar(10)" length="10" not-null="false"/>
         </property>
         <property name="age">
-            <column name="age" sql-type="int(11)" not-null="true"/>
+            <column name="age" sql-type="int(11)" not-null="false"/>
         </property>
         <property name="password">
             <column name="password" sql-type="varchar(255)"/>

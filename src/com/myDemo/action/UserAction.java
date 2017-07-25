@@ -1,12 +1,14 @@
 package com.myDemo.action;
 
 import com.myDemo.model.UserEntity;
+import com.myDemo.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by thanatos on 2017/7/24.
  */
 public class UserAction extends ActionSupport {
+    private UserService userService = new UserService();
     private UserEntity userEntity;
     private String userName;
     private String password;
@@ -14,8 +16,8 @@ public class UserAction extends ActionSupport {
     public String signIn() {
         System.out.println("userName:"+userName);
         System.out.println("password:"+password);
-        userEntity.setUserName(userName);
-        userEntity.setPassword(password);
+
+        userService.addUser(this.userEntity,this.userName,this.password,"man",11);
         return SUCCESS;
     }
 
