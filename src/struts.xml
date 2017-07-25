@@ -5,4 +5,11 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.devMode" value="true"></constant>
+
+    <package name="user" namespace="/user" extends="struts-default">
+        <action name="user_*" class="com.myDemo.action.UserAction" method="{1}">
+            <result>user_{1}_success.jsp</result>
+        </action>
+    </package>
 </struts>

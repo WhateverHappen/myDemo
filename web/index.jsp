@@ -8,9 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Welcome</title>
   </head>
   <body>
-  $END$
+  <h1>Welcome</h1>
+  <form action="user/user_signIn.jsp">
+    <button onclick="">Sign in</button>
+  </form>
+  <form action="user/user_signUp.jsp">
+    <button>Sign up</button>
+  </form>
   </body>
 </html>

@@ -1,0 +1,10 @@
+create database myDemo
+
+CREATE TABLE user
+(
+  userId int AUTO_INCREMENT,
+  userName VARCHAR(255) not NULL,
+  sex VARCHAR(10),
+  age int,
+  PRIMARY KEY (userId)
+);
