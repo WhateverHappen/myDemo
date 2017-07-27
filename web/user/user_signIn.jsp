@@ -13,15 +13,33 @@
     String basepath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <head>
-    <title>Sign in</title>
     <base href="<%=basepath%>">
+    <title>Sign in</title>
 </head>
 <body>
-<form action="user/user_signIn" method="post">
-    name:<input type="text" name="userName" id="userName"/>
-    password:<input type="text" name="password" id="password"/>
-    <input type="submit" name="sign in">
-</form>
+<div align="center">
+    <form action="user/user_signIn" method="post" >
+        <table  cellspacing=5 border=5 bodercolor=#ffaa00 >
+            <tr>
+                <th colspan="3" align="center"  bgcolor=#ffaa00>用户登录</th>
+            </tr>
+            <tr>
+                <td align="center">用户名：</td>
+                <td><input type="text" class="message" name="username"></td>
+            </tr>
+            <tr>
+                <td align="center">密码：</td>
+                <td><input class="message" type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="登录">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 <s:debug></s:debug>
 </body>
 </html>

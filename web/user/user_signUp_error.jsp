@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 嘲讽脸
-  Date: 2017/7/24
-  Time: 15:51
+  Date: 2017/7/26
+  Time: 15:27
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,18 +14,9 @@
 %>
 <head>
     <base href="<%=basepath%>">
-    <title>Sign in success</title>
+    <title>sign up error</title>
 </head>
 <body>
-<h1 align="center">Sign in success!</h1>
-<div align="center">
-    <table>
-    <tr><td>用户：<s:property value="userName"/></td></tr>
-    <tr><td>密码：<s:property value="password"/></td></tr>
-    </table>
-</div>
-
-
-<s:debug></s:debug>
+<h1>该用户名已被申请</h1>
 </body>
 </html>

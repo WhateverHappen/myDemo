@@ -12,17 +12,38 @@ public class UserAction extends ActionSupport {
     private UserEntity userEntity;
     private String userName;
     private String password;
+    private String passwordCheck;
+    private String sex;
+    private int age;
 
     public String signIn() {
-        System.out.println("userName:"+userName);
-        System.out.println("password:"+password);
-
-        userService.addUser(this.userEntity,this.userName,this.password,"man",11);
-        return SUCCESS;
+        System.out.println("userName:" + userName);
+        System.out.println("password:" + password);
+        String result = userService.checkUser(userName, password);
+        if (result.equals("success")) {
+            return SUCCESS;
+        } else if (result.equals("error")) {
+            return ERROR;
+        }
+        return ERROR;
     }
 
     public String signUp() {
-        return SUCCESS;
+        System.out.println("userName:" + userName);
+        System.out.println("password:" + password);
+        System.out.println("passwordCheck:"+passwordCheck);
+        System.out.println("sex:" + sex);
+        System.out.println("age:" + age);
+//        if(!passwordCheck.equals(password)){
+//            return ERROR;
+//        }
+        String result = userService.addUser(this.userEntity, this.userName, this.password, this.sex, this.age);
+        if (result.equals("success")) {          //添加用户成功
+            return SUCCESS;
+        } else if (result.equals("error")) {      //用户名重复
+            return ERROR;
+        }
+        return ERROR;
     }
 
     public String getUserName() {
@@ -41,11 +62,27 @@ public class UserAction extends ActionSupport {
         this.password = password;
     }
 
-    public UserEntity getUser() {
-        return userEntity;
+    public String getSex() {
+        return sex;
     }
 
-    public void setUser(UserEntity user) {
-        this.userEntity = user;
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPasswordCheck() {
+        return passwordCheck;
+    }
+
+    public void setPasswordCheck(String passwordCheck) {
+        this.passwordCheck = passwordCheck;
     }
 }

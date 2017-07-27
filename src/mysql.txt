@@ -8,3 +8,7 @@ CREATE TABLE user
   age int,
   PRIMARY KEY (userId)
 );
+//添加性别限制，只能为man和woman
+ALTER TABLE user add CONSTRAINT CK_Sex check(sex='man' or sex='woman');
+//添加年龄限制，大于零
+ALTER TABLE user add CONSTRAINT CK_Age CHECK (age>0);
