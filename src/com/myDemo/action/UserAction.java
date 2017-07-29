@@ -16,6 +16,11 @@ public class UserAction extends ActionSupport {
     private String sex;
     private int age;
 
+    /**
+     * 用户登录，用于与Struts框架结合
+     *
+     * @return 若登录校验成功，则返回success，否则返回error
+     */
     public String signIn() {
         System.out.println("userName:" + userName);
         System.out.println("password:" + password);
@@ -28,15 +33,18 @@ public class UserAction extends ActionSupport {
         return ERROR;
     }
 
+
+    /**
+     * 用户注册，用于与Struts框架结合
+     *
+     * @return 若注册校验成功，则返回success，否则返回error
+     */
     public String signUp() {
         System.out.println("userName:" + userName);
         System.out.println("password:" + password);
-        System.out.println("passwordCheck:"+passwordCheck);
+        System.out.println("passwordCheck:" + passwordCheck);
         System.out.println("sex:" + sex);
         System.out.println("age:" + age);
-//        if(!passwordCheck.equals(password)){
-//            return ERROR;
-//        }
         String result = userService.addUser(this.userEntity, this.userName, this.password, this.sex, this.age);
         if (result.equals("success")) {          //添加用户成功
             return SUCCESS;
@@ -45,6 +53,31 @@ public class UserAction extends ActionSupport {
         }
         return ERROR;
     }
+
+    public void validateSignUp() {
+        //用户名校验
+        if (userName == null || userName.equals("") || !userName.matches("^\\w*&")
+                || userName.length() < 4 || userName.length() > 10) {
+            addFieldError("userName", "用户名必须是字母和数字，长度介于4到10之间");
+        }
+
+        //密码校验
+        if (password == null || password.equals("") || password.length() < 8
+                || password.length() > 15) {
+            addFieldError("password", "密码长度必须介于8到15之间");
+        }
+
+        //重复密码校验
+        if (!passwordCheck.equals(password)) {
+            addFieldError("passwordCheck", "再次输入密码不一致");
+        }
+
+        //年龄校验
+        if (age < 0 || age > 200) {
+            addFieldError("age", "无效年龄");
+        }
+    }
+
 
     public String getUserName() {
         return userName;

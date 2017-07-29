@@ -14,9 +14,11 @@
 %>
 <head>
     <base href="<%=basepath%>">
+    <script type="text/javascript" src="signInCheck.js"></script>
     <title>Sign in</title>
 </head>
 <body>
+
 <div align="center">
     <form action="user/user_signIn" method="post" >
         <table  cellspacing=5 border=5 bodercolor=#ffaa00 >
@@ -33,7 +35,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="登录">
+                    <input type="button" value="登录" onclick="login">
                     <input type="reset" value="重置">
                 </td>
             </tr>

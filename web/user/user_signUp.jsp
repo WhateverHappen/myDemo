@@ -15,9 +15,18 @@
 <head>
     <base href="<%=basepath%>">
     <title>Sign up</title>
+    <script type="text/javascript" src="signUpCheck.js"></script>
 </head>
 <body>
-<div align="center">
+<s:form action="user_signUp" namespace="/user" >
+    <s:textfield label="用户名" name="userName"></s:textfield>
+    <s:textfield label="密码" name="password"></s:textfield>
+    <s:textfield label="重新输入密码" name="passwordCheck"></s:textfield>
+    <s:textfield label="年龄" name="age"></s:textfield>
+    <s:select label="性别" list="{'男','女'}"  name="sex" headerKey=" 1" headerValue="--请选择--" multiple="false"></s:select>
+    <s:submit value="注册"></s:submit>
+</s:form>
+<%--<div align="center">
     <form action="user/user_signUp" method="post">
         <table  cellspacing=8 border=5 bodercolor=#ffaa00 >
             <tr>
@@ -45,18 +54,13 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="登录">
+                    <input type="button" value="注册" onclick="register(this.form)">
                     <input type="reset" value="重置">
                 </td>
             </tr>
         </table>
     </form>
-</div>
-<script type="text/javascript">
-    var password=document.getElementById('password').innerHTML;
-    var passwordCheck=document.getElementById('passwordCheck').innerHTML;
-    if(password!=passwordCheck)
-        alert("密码不一致")
-</script>
+</div>--%>
+<s:debug></s:debug>
 </body>
 </html>
